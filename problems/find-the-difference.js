@@ -4,15 +4,16 @@
  * @return {character}
  */
 const findTheDifference = (s, t) => {
-  const sLetters = new Map();
+  const counts = new Map();
+
   for (const letter of s) {
-    sLetters.set(letter, ~~sLetters.get(letter) + 1);
+    counts.set(letter, ~~counts.get(letter) + 1);
   }
 
   for (const letter of t) {
-    const present = sLetters.get(letter);
-    if (!~~present) return letter;
-    sLetters.set(letter, ~~present - 1);
+    const count = counts.get(letter);
+    if (!count) return letter;
+    counts.set(letter, ~~count - 1);
   }
 
   return '';
