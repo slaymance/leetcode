@@ -1,0 +1,13 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "lint": "prettier --write ."
+  },
+  "author": "Shane Laymance",
+  "devDependencies": {
+    "prettier": "2.8.8",
+    "typescript": "^1.0.0"
+  }
+}
