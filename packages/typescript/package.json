@@ -8,6 +8,6 @@
   "author": "Shane Laymance",
   "devDependencies": {
     "prettier": "2.8.8",
-    "typescript": "^1.0.0"
+    "ts-node": "^10.9.1"
   }
 }
