@@ -1,9 +1,17 @@
-class ListNode {
+export class ListNode {
   val: number;
-  next: ListNode | null;
+  #next: ListNode | null;
   constructor(val?: number, next?: ListNode | null) {
     this.val = val === undefined ? 0 : val;
-    this.next = next === undefined ? null : next;
+    this.#next = next === undefined ? null : next;
+  }
+
+  get next() {
+    return this.#next;
+  }
+
+  set next(node: ListNode | null) {
+    this.#next = node;
   }
 }
 

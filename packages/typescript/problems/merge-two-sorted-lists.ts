@@ -1,3 +1,5 @@
+import { ListNode } from './reverse-linked-list';
+
 function mergeTwoLists(
   list1: ListNode | null,
   list2: ListNode | null
