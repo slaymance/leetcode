@@ -10,27 +10,21 @@ class ListNode {
 }
 
 function copyRandomList(head: ListNode | null): ListNode | null {
-  const oldList: [ListNode, number | null][] = [];
-  const newList: ListNode[] = [];
+  const nodeMap = new Map();
 
   let pointer = head;
   while (pointer) {
-    oldList.push([pointer, null]);
-    newList.push(new ListNode(pointer.val));
+    nodeMap.set(pointer, new ListNode(pointer.val));
     pointer = pointer.next;
   }
 
-  for (const pair of oldList) {
-    pair[1] = pair[0].random
-      ? oldList.findIndex(([node]) => node === pair[0].random)
-      : null;
+  pointer = head;
+  while (pointer) {
+    const newNode = nodeMap.get(pointer);
+    newNode.next = nodeMap.get(pointer.next) ?? null;
+    newNode.random = nodeMap.get(pointer.random) ?? null;
+    pointer = pointer.next;
   }
 
-  for (let i = 0; i < newList.length; i++) {
-    const randomIndex = oldList[i][1];
-    newList[i].next = newList[i + 1] ?? null;
-    newList[i].random = randomIndex !== null ? newList[randomIndex] : null;
-  }
-
-  return newList[0] ?? null;
+  return nodeMap.get(head) ?? null;
 }
